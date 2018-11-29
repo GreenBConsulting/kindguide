@@ -1,0 +1,33 @@
+{
+    "name": "wikiworldorder/kindguide",
+    "description": "Green B presents The Kind Guide database, a web app empowering the cannabis community and the industry to track growth in ever more sustainable directions.",
+    "keywords": [
+    	"laravel", 
+    	"SurvLoop", 
+    	"survey", 
+    	"database designer", 
+    	"user experience", 
+    	"forms", 
+    	"mobile friendly", 
+    	"mobile first", 
+    	"branching tree",
+    	"nodes"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Morgan Lesko",
+            "homepage": "https://github.com/wikiworldorder/kindguide",
+            "email": "mo@wikiworldorder.org",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "wikiworldorder/survloop": "0.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "KindGuide\\": "src/"
+        }
+    }
+}
