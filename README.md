@@ -119,7 +119,17 @@ $ php artisan db:seed --class=SurvLoopSeeder
 $ php artisan db:seed --class=KindGuideSeeder
 ```
 
-* Log into Open Police admin dashboard...
+* For now, to apply database design changes to the same installation you are working in, depending on your server, 
+you might also need something like this...
+
+```
+$ chown -R www-data:33 app/Models
+$ chown -R www-data:33 database
+```
+
+* Browse to load the style sheets, etc.. /dashboard/css-reload
+
+* Log into The Kind Guide admin dashboard...
 
 ```
 user: open@thekind.guide
@@ -150,3 +160,17 @@ Here's the TODO list for the next release (**1.0**). It's my first time building
 
 Please help educate me on best practices for sharing code in this community.
 Please report any issue you find in the issues page.
+
+# <a name="security-help"></a>Reporting a Security Vulnerability
+
+We want to ensure that SurvLoop is a secure HTTP open data platform for everyone. 
+If you've discovered a security vulnerability at App.TheKind.Guide, 
+we appreciate your help in disclosing it to us in a responsible manner.
+
+Publicly disclosing a vulnerability can put the entire community at risk. 
+If you've discovered a security concern, please email us at wikiworldorder *at* protonmail.com. 
+We'll work with you to make sure that we understand the scope of the issue, and that we fully address your concern. 
+We consider correspondence sent to wikiworldorder *at* protonmail.com our highest priority, 
+and work to address any issues that arise as quickly as possible.
+
+After a security vulnerability has been corrected, a release will be deployed as soon as possible.

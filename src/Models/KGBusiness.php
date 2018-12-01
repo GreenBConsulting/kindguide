@@ -52,6 +52,10 @@ class KGBusiness extends Model
 		'BusUniqueStr', 
 		'BusTreeVersion', 
 		'BusVersionAB', 
+		'BusFeedback1', 
+		'BusFeedback2', 
+		'BusFeedback3', 
+		'BusFeedback4', 
     ];
     
     // END SurvLoop auto-generated portion of Model

@@ -127,6 +127,11 @@ class KGConsumerSurvey extends Model
 		'ConLklyDispensCsr', 
 		'ConIsMobile', 
 		'ConEventVolunContact', 
+		'ConFeedback1', 
+		'ConFeedback2', 
+		'ConFeedback3', 
+		'ConFeedback4', 
+		'ConFeedback5', 
     ];
     
     // END SurvLoop auto-generated portion of Model
