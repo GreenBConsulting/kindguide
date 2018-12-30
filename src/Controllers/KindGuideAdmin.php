@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\SLDefinitions;
 
-use KindGuide\Controllers\KindGuideReport;
+use KindGuide\Controllers\KindGuide;
 use SurvLoop\Controllers\AdminSubsController;
 
 class KindGuideAdmin extends AdminSubsController
@@ -27,7 +27,7 @@ class KindGuideAdmin extends AdminSubsController
     
     protected function initExtra(Request $request)
     {
-        $this->CustReport = new KindGuideReport($request);
+        $this->custReport = new KindGuide($request);
         
         
         return true;

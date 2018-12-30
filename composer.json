@@ -1,5 +1,5 @@
 {
-    "name": "wikiworldorder/kindguide",
+    "name": "greenbconsulting/kindguide",
     "description": "Green B presents The Kind Guide database, a web app empowering the cannabis community and the industry to track growth in ever more sustainable directions.",
     "keywords": [
     	"laravel", 
@@ -17,7 +17,7 @@
     "authors": [
         {
             "name": "Morgan Lesko",
-            "homepage": "https://github.com/wikiworldorder/kindguide",
+            "homepage": "https://github.com/greenbconsulting/kindguide",
             "email": "mo@wikiworldorder.org",
             "role": "Developer"
         }

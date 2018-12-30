@@ -9,11 +9,11 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\KGNonprofit;
 
-use KindGuide\Controllers\KindGuideReport;
+use KindGuide\Controllers\KindGuide;
 
-use SurvLoop\Controllers\SurvFormTree;
+use SurvLoop\Controllers\TreeSurvForm;
 
-class KindGuide extends SurvFormTree
+class KindGuide extends TreeSurvForm
 {
     
     public $classExtension         = 'KindGuide';

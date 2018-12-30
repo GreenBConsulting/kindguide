@@ -1,12 +1,12 @@
 
-# WikiWorldOrder/KindGuide
+# GreenBConsulting/KindGuide
 
 [![Laravel](https://img.shields.io/badge/Laravel-5.7-orange.svg?style=flat-square)](http://laravel.com)
 [![SurvLoop](https://img.shields.io/badge/SurvLoop-0.0-orange.svg?style=flat-square)](https://github.com/wikiworldorder/survloop)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 
-Green B presents The Kind Guide database, an open-source web app empowering the cannabis community, and the industry, to 
-prepare, track, and grow in ever more sustainable directions. The site helps collect data and information to inform
+Green B presents The Kind Guide database, a web app empowering the cannabis community and the industry to track growth
+in ever more sustainable directions.  The site helps collect data and information to inform
 this pollination. The Kind Guide database is built using 
 <a href="https://github.com/wikiworldorder/survloop" target="_blank">SurvLoop</a>, atop 
 <a href="https://laravel.com/" target="_blank">Laravel</a>. 
@@ -54,7 +54,7 @@ $ nano composer.json
 ...
 "require": {
 	...
-    "wikiworldorder/kindguide": "0.*",
+    "greenbconsulting/kindguide": "0.*",
 	...
 },
 ...
@@ -62,7 +62,7 @@ $ nano composer.json
 	...
 	"psr-4": {
 		...
-		"KindGuide\\": "vendor/wikiworldorder/kindguide/src/",
+		"KindGuide\\": "vendor/greenbconsulting/kindguide/src/",
 	}
 	...
 },
@@ -91,7 +91,7 @@ $ nano config/app.php
 'aliases' => [
 	...
 	'SurvLoop'	 => 'WikiWorldOrder\SurvLoop\SurvLoopFacade',
-	'KindGuide'	 => 'WikiWorldOrder\KindGuide\KindGuideFacade',
+	'KindGuide'	 => 'GreenBConsulting\KindGuide\KindGuideFacade',
 	...
 ],
 ...
