@@ -13,22 +13,8 @@
 
 Route::group(['middleware' => ['web']], function () {
 
-    Route::post('/profile/{uid}',     [
-        'uses' => 'KindGuide\Controllers\VolunteerController@volunProfileAdm', 
-        'middleware' => ['auth']
-    ]);
-    Route::get( '/profile/{uid}',     [
-        'uses' => 'KindGuide\Controllers\VolunteerController@volunProfileAdm', 
-        'middleware' => ['auth']
-    ]);
-    
-    Route::get('/admin', [
-        'uses' => 'KindGuide\Controllers\KindGuideAdmin@dashHome', 
-        'middleware' => ['auth']
-    ]);
-    
-    Route::get('/dashboard', [
-        'uses' => 'KindGuide\Controllers\KindGuideAdmin@dashHome', 
+    Route::post('/future-awesomeness',     [
+        'uses' => 'KindGuide\Controllers\KindGuide@index', 
         'middleware' => ['auth']
     ]);
 

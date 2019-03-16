@@ -11,7 +11,7 @@ use App\Models\KGNonprofit;
 
 use KindGuide\Controllers\KindGuide;
 
-use SurvLoop\Controllers\TreeSurvForm;
+use SurvLoop\Controllers\Tree\TreeSurvForm;
 
 class KindGuide extends TreeSurvForm
 {
