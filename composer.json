@@ -28,6 +28,7 @@
     "autoload": {
         "psr-4": {
             "KindGuide\\": "src/"
+            "KindGuide\\Models\\": "storage/app/models/kindguide",
         }
     }
 }
