@@ -28,7 +28,16 @@
     "autoload": {
         "psr-4": {
             "KindGuide\\": "src/"
-            "KindGuide\\Models\\": "storage/app/models/kindguide",
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "SurvLoop\\SurvLoopServiceProvider"
+            ],
+            "aliases": {
+                "SurvLoop": "SurvLoop\\SurvLoopFacade"
+            }
         }
     }
 }

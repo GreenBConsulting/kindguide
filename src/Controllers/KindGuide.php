@@ -5,12 +5,9 @@ use DB;
 use Auth;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
-
 use App\Models\User;
 use App\Models\KGNonprofit;
-
 use KindGuide\Controllers\KindGuide;
-
 use SurvLoop\Controllers\Tree\TreeSurvForm;
 
 class KindGuide extends TreeSurvForm

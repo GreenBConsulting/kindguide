@@ -4,10 +4,8 @@ namespace KindGuide\Controllers;
 use DB;
 use Auth;
 use Illuminate\Http\Request;
-
 use App\Models\User;
 use App\Models\SLDefinitions;
-
 use KindGuide\Controllers\KindGuide;
 use SurvLoop\Controllers\AdminSubsController;
 
