@@ -7,15 +7,10 @@ use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\KGNonprofit;
-use KindGuide\Controllers\KindGuide;
-use SurvLoop\Controllers\Tree\TreeSurvForm;
+use KindGuide\Controllers\KindAudits;
 
-class KindGuide extends TreeSurvForm
+class KindGuide extends KindAudits
 {
-    
-    public $classExtension         = 'KindGuide';
-    public $treeID                 = 1;
-    
     // Initializing a bunch of things which are not [yet] automatically determined by the software
     protected function initExtra(Request $request)
     {
@@ -45,20 +40,34 @@ class KindGuide extends TreeSurvForm
     {
 //echo '<br /><br /><br />isPublished(' . $coreTbl . ', ' . $coreID . ', <pre>'; print_r($coreRec); echo '</pre>';
         if ($coreTbl == 'Nonprofit') {
-            if (!$coreRec) $coreRec = KGNonprofit::find($coreID);
-            if ($coreRec && isset($coreRec->NonName) && trim($coreRec->NonName) != '') return true;
+            if (!$coreRec) {
+                $coreRec = KGNonprofit::find($coreID);
+            }
+            if ($coreRec && isset($coreRec->NonName) && trim($coreRec->NonName) != '') {
+                return true;
+            }
         }
         return false;
     }
     
     protected function recordIsEditable($coreTbl, $coreID, $coreRec = NULL)
     {
-        if ($this->v["isAdmin"]) return true;
+        if ($this->v["isAdmin"]) {
+            return true;
+        }
         if ($coreTbl == 'Nonprofit') {
-            if (!$coreRec && $coreID > 0) $coreRec = KGNonprofit::find($coreID);
-            if (!isset($coreRec->NonStatus)) return true;
-            if (!$coreRec) return false;
-            if ($coreRec->NonStatus == $GLOBALS["SL"]->def->getID('Nonprofit Status', 'Incomplete')) return true;
+            if (!$coreRec && $coreID > 0) {
+                $coreRec = KGNonprofit::find($coreID);
+            }
+            if (!isset($coreRec->NonStatus)) {
+                return true;
+            }
+            if (!$coreRec) {
+                return false;
+            }
+            if ($coreRec->NonStatus == $GLOBALS["SL"]->def->getID('Nonprofit Status', 'Incomplete')) {
+                return true;
+            }
         }
         return false;
     }
@@ -102,19 +111,31 @@ class KindGuide extends TreeSurvForm
             return $this->printNonprofitSocialLinks(). '<p>&nbsp;</p>';
         } elseif ($nID == 349) {
 //            if (isset($this->sessData->dataSets["BusinessInvites"]) && !isset($this->sessData->dataSets["BusinessInvites"][0]->
+            
+        // Manage Audits
+        } elseif ($nID == 495) {
+            return $this->printCertSkinStyles($nID);
+        } elseif ($nID == 507) {
+            return $this->printAuditOverviewOpts($nID);
+        } elseif (in_array($nID, [493, 505])) {
+            return $this->printAuditOverview($nID);
+        } elseif ($nID == 486) {
+            return $this->printAuditImport($nID);
         }
         return $ret;
     }
     
     public function printPreviewReportCustom($isAdmin = false)
     {
-        if (!isset($this->sessData->dataSets[$GLOBALS["SL"]->coreTbl])) return '';
+        if (!isset($this->sessData->dataSets[$GLOBALS["SL"]->coreTbl])) {
+            return '';
+        }
         if ($GLOBALS["SL"]->coreTbl == 'Nonprofit') {
             return view('vendor.kindguide.nonprofit-report-preview', [
                 "uID"         => $this->v["uID"],
                 "isAdmin"     => $this->v["isAdmin"],
                 "nonprofit"   => $this->sessData->dataSets["Nonprofit"][0]
-                ])->render();
+            ])->render();
         }
         return '';
     }
@@ -132,37 +153,6 @@ class KindGuide extends TreeSurvForm
             return $this->ajaxSendBusTok($request);
         }
         return '';
-    }
-    
-    protected function printConsumerSurveySocialLinks()
-    {
-        $share = [
-            'https://app.thekind.guide/start/consumers',
-            '"I\'m Kind, are you?!" Help #KeepItGreen by completing this quick cannabis consumer survey from '
-                . '@KindGuide420!',
-            'btn btn-xl btn-primary'
-            ];
-        return $this->printSocialLinks($share);
-    }
-    
-    protected function printNonprofitSocialLinks()
-    {
-        $share = [
-            'https://app.thekind.guide/cannabis-community-nonprofit-directory',
-            '"I\'m Kind, are you?!" Help #KeepItGreen by adding to a nationwide database of Every. Single. Cannabis '
-            . 'affiliated nonprofit or community support organization. @KindGuide420!',
-            'btn btn-sm btn-secondary w100'
-            ];
-        return $this->printSocialLinks($share);
-    }
-    
-    protected function printSocialLinks($share)
-    {
-        return '<div class="row"><div class="col-4 taC">' . $GLOBALS["SL"]->twitShareBtn($share[0], $share[1], 
-            '#StillADrugWar #StillAMovement', $share[2])
-            . '</div><div class="col-4 taC">' . $GLOBALS["SL"]->faceShareBtn($share[0], $share[1], $share[2])
-            . '</div><div class="col-4 taC">' . $GLOBALS["SL"]->linkedinShareBtn($share[0], $share[1], $share[2])
-            . '</div></div>';
     }
     
     public function sendEmailBlurbsCustom($emailBody, $deptID = -3)
@@ -214,32 +204,6 @@ class KindGuide extends TreeSurvForm
             }
         }
         return $emailBody;
-    }
-    
-    protected function ajaxSendBusTok(Request $request)
-    {
-        $this->survLoopInit($request);
-        $currEma = SLEmails::find(1);
-        if ($currEma && isset($currEma->EmailSubject) && $request->has('n261fld') && trim($request->n261fld) != '') {
-            $emaSubj = $this->emailRecordSwap($currEma->EmailSubject);
-            $emaCont = $this->emailRecordSwap($this->sendEmailBlurbs($currEma->EmailBody));
-            $emaTo = [ [$request->n261fld, ''] ];
-            $this->sendEmail($emaCont, $emaSubj, $emaTo, [], [], $this->postEmailFrom());
-            $this->logEmailSent($emaCont, $emaSubj, $emaTo, 1, 16, $this->coreID, $this->v["uID"]);
-        }
-        return '<script type="text/javascript"> setTimeout("window.parent.document.getElementById(\'emailAccessResult'
-            . '\').innerHTML=\'Token Email Initiated\'", 10); </script>';
-    }
-    
-    protected function printMfaInstruct()
-    {
-        if (isset($this->v["tokenUser"]) && $this->v["tokenUser"]) {
-            return view('vendor.openpolice.nodes.1780-mfa-instructions', [
-                "user" => $this->v["tokenUser"],
-                "mfa"  => $this->processTokenAccess(false)
-                ])->render();
-        }
-        return '';
     }
     
 }

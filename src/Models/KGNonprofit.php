@@ -10,6 +10,7 @@ class KGNonprofit extends Model
     public $timestamps    = true;
     protected $fillable   = 
     [    
+		'NonStatus', 
 		'NonUserID', 
 		'NonName', 
 		'NonWebsite', 

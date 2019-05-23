@@ -5790,7 +5790,7 @@ class KindGuideSeeder extends Seeder
 			'DefDatabase' => '1',
 			'DefSet' => 'Style Settings',
 			'DefSubset' => 'color-main-on',
-			'DefDescription' => '#ff66c4'
+			'DefDescription' => '#b38a4d'
 		]);
 		DB::table('SL_Definitions')->insert([
 			'DefID' => 122,
