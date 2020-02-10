@@ -23,7 +23,7 @@
         }
     ],
     "require": {
-        "wikiworldorder/survloop": "*@dev"
+        "rockhopsoft/survloop": "*@dev"
     },
     "autoload": {
         "psr-4": {

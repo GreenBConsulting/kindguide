@@ -5895,7 +5895,7 @@ class KindGuideSeeder extends Seeder
 			'DefDatabase' => '1',
 			'DefSet' => 'System Settings',
 			'DefSubset' => 'cust-package',
-			'DefDescription' => 'wikiworldorder/kindguide'
+			'DefDescription' => 'rockhopsoft/kindguide'
 		]);
 		DB::table('SL_Definitions')->insert([
 			'DefID' => 137,

@@ -2,13 +2,13 @@
 # GreenBConsulting/KindGuide
 
 [![Laravel](https://img.shields.io/badge/Laravel-5.7-orange.svg?style=flat-square)](http://laravel.com)
-[![SurvLoop](https://img.shields.io/badge/SurvLoop-0.0-orange.svg?style=flat-square)](https://github.com/wikiworldorder/survloop)
+[![SurvLoop](https://img.shields.io/badge/SurvLoop-0.0-orange.svg?style=flat-square)](https://github.com/rockhopsoft/survloop)
 [![License](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://tldrlegal.com/license/mit-license)
 
 Green B presents The Kind Guide database, a web app empowering the cannabis community and the industry to track growth
 in ever more sustainable directions.  The site helps collect data and information to inform
 this pollination. The Kind Guide database is built using 
-<a href="https://github.com/wikiworldorder/survloop" target="_blank">SurvLoop</a>, atop 
+<a href="https://github.com/rockhopsoft/survloop" target="_blank">SurvLoop</a>, atop 
 <a href="https://laravel.com/" target="_blank">Laravel</a>. 
 <a href="http://GoGreenB.org" target="_blank">http://GoGreenB.org</a>
 SurvLoop is a Laravel-based engine for designing a database and creating a mobile-friendly user interface to fill it. 
@@ -26,7 +26,7 @@ SurvLoop is a Laravel-based engine for designing a database and creating a mobil
 
 * php: >=7.2.11
 * <a href="https://packagist.org/packages/laravel/framework" target="_blank">laravel/framework</a>: 5.7.*
-* <a href="https://packagist.org/packages/wikiworldorder/survloop" target="_blank">wikiworldorder/survloop</a>: 0.*
+* <a href="https://packagist.org/packages/rockhopsoft/survloop" target="_blank">rockhopsoft/survloop</a>: 0.*
 
 # <a name="getting-started"></a>Getting Started
 
@@ -90,7 +90,7 @@ $ nano config/app.php
 ...
 'aliases' => [
 	...
-	'SurvLoop'	 => 'WikiWorldOrder\SurvLoop\SurvLoopFacade',
+	'SurvLoop'	 => 'RockHopSoft\SurvLoop\SurvLoopFacade',
 	'KindGuide'	 => 'GreenBConsulting\KindGuide\KindGuideFacade',
 	...
 ],
@@ -168,9 +168,9 @@ If you've discovered a security vulnerability at App.TheKind.Guide,
 we appreciate your help in disclosing it to us in a responsible manner.
 
 Publicly disclosing a vulnerability can put the entire community at risk. 
-If you've discovered a security concern, please email us at wikiworldorder *at* protonmail.com. 
+If you've discovered a security concern, please email us at rockhoppers *at* runbox.com. 
 We'll work with you to make sure that we understand the scope of the issue, and that we fully address your concern. 
-We consider correspondence sent to wikiworldorder *at* protonmail.com our highest priority, 
+We consider correspondence sent to rockhoppers *at* runbox.com our highest priority, 
 and work to address any issues that arise as quickly as possible.
 
 After a security vulnerability has been corrected, a release will be deployed as soon as possible.
